@@ -1,0 +1,15 @@
+*.blg
+*.out
+*.log
+*.aux
+*.bbl
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+# *.pdf
+.DS_Store
+*.xml
+*.bcf
+*.bak
+*.synctex(busy)
+*.tex
