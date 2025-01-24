@@ -87,7 +87,7 @@ h1 {
 }
 
 .me-img img {
-    border-radius: 8px;
+    border-radius: 50%; /* Makes the image a circle */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     margin: 10px auto;
     display: block;
