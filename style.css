@@ -18,6 +18,31 @@
       text-rendering:optimizeLegibility;
   }
   
+  .icon-container {
+    display: inline-block; /* Align icons inline */
+    margin-right: 15px; /* Add spacing between icons */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth hover effects */
+  }
+  
+  .icon-container a {
+    display: inline-block; /* Ensure icons and links align */
+  }
+  
+  .icon-container img {
+    border-radius: 5px; /* Add slight rounding for a polished look */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease; /* Smooth hover zoom effect */
+  }
+  
+  .icon-container:hover img {
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  }
+  
+  .icon-container:hover {
+    opacity: 0.8; /* Slightly fade on hover for effect */
+  }
+
   .skill-set li:hover
   {
       background:#3498db;
