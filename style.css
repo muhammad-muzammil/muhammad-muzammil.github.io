@@ -63,11 +63,6 @@
     text-align: left; /* Left-align content */
     margin: 0;
   }
-  .dropdown-content pre {
-    white-space: pre-wrap; /* Preserve wrapping but avoid extra spaces */
-    margin: 0; /* Remove unnecessary margin */
-    padding: 0; /* Remove extra padding */
-}
   .dropdown-content.show {
     max-height: 500px; /* Expand to fit content */
     opacity: 1;
