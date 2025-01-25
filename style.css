@@ -28,9 +28,8 @@
     text-decoration: #ec562c wavy underline !important;
   }
   .citation-container {
-    margin-top: 10px; /* Add space above the container */
-    display: block; /* Ensure it stacks naturally */
-    text-align: left; /* Align content to the left */
+    margin-top: 10px;
+    display: block; /* Ensure vertical stacking */
   }
   
   .dropdown-btn {
@@ -42,31 +41,33 @@
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-    margin-bottom: 10px; /* Add space below the button */
+    margin-bottom: 10px;
   }
   
   .dropdown-btn:hover {
-    background-color: #d44b26; /* Slightly darker shade for hover */
+    background-color: #d44b26; /* Slightly darker hover color */
   }
   
   .dropdown-content {
-    max-height: 0; /* Collapsed by default */
-    overflow: hidden; /* Prevent overflowing content */
-    opacity: 0; /* Initially hidden */
-    transform: scaleY(0); /* Shrink vertically */
-    transform-origin: top; /* Expand from the top */
-    transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /* Smooth dropdown effect */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
     font-family: monospace;
     font-size: 0.85em;
-    text-align: left; /* Align text properly */
-    margin-left: 0; /* Remove any unexpected left margin */
+    text-align: left; /* Ensure content is left-aligned */
+    margin: 0; /* Reset any inherited margins */
+    padding-left: 0; /* Align text with button */
   }
   
   .dropdown-content.show {
-    max-height: 500px; /* Adjust based on content height */
-    opacity: 1; /* Fully visible */
-    transform: scaleY(1); /* Fully expanded */
+    max-height: 500px;
+    opacity: 1;
+    transform: scaleY(1);
   }
+  
   .skill-set li:hover
   {
       background:#3498db;
