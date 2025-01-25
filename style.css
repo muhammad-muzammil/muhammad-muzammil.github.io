@@ -28,10 +28,9 @@
     text-decoration: #ec562c wavy underline !important;
   }
   .citation-container {
-    margin-top: 10px; /* Space between the publication details and button */
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: flex-start; /* Align to the left */
+    margin-top: 10px; /* Add space above the container */
+    display: block; /* Ensure it stacks naturally */
+    text-align: left; /* Align content to the left */
   }
   
   .dropdown-btn {
@@ -43,7 +42,7 @@
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-    margin-bottom: 5px; /* Space below the button */
+    margin-bottom: 10px; /* Add space below the button */
   }
   
   .dropdown-btn:hover {
@@ -53,17 +52,18 @@
   .dropdown-content {
     max-height: 0; /* Collapsed by default */
     overflow: hidden; /* Prevent overflowing content */
-    opacity: 0; /* Initially transparent */
-    transform: scaleY(0); /* Collapsed vertically */
+    opacity: 0; /* Initially hidden */
+    transform: scaleY(0); /* Shrink vertically */
     transform-origin: top; /* Expand from the top */
     transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /* Smooth dropdown effect */
     font-family: monospace;
     font-size: 0.85em;
-    text-align: left;
+    text-align: left; /* Align text properly */
+    margin-left: 0; /* Remove any unexpected left margin */
   }
   
   .dropdown-content.show {
-    max-height: 500px; /* Adjust based on content */
+    max-height: 500px; /* Adjust based on content height */
     opacity: 1; /* Fully visible */
     transform: scaleY(1); /* Fully expanded */
   }
