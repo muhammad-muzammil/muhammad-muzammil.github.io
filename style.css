@@ -28,30 +28,34 @@
     text-decoration: #ec562c wavy underline !important;
   }
   
-
   .dropdown-btn {
-    background-color: #3498db;
+    background-color: #ec562c;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 8px 12px;
     font-size: 0.9em;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
   }
   
   .dropdown-btn:hover {
-    background-color: #1e7ac5;
+    background-color: #ec562c;
   }
   
+  /* Dropdown Content Styling */
   .dropdown-content {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    display: none; /* Initially hidden */
+    background-color: #ec562c;
+    border: 1px solid #ec562c;
     border-radius: 5px;
     padding: 10px;
-    margin-top: 5px;
+    margin-top: 10px;
     font-family: monospace;
-    font-size: 0.85em;
+    font-size: 0.9em;
     white-space: pre-wrap;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
   
 
