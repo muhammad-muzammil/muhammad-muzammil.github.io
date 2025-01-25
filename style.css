@@ -68,6 +68,24 @@
     opacity: 1;
     transform: scaleY(1); /* Fully expanded */
   }
+
+  .source-btn {
+    background-color: #ec562c; /* Same as dropdown button */
+    color: #ffffff; /* White text */
+    text-decoration: none; /* Remove underline */
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .source-btn:hover {
+    background-color: #d44b26; /* Slightly darker on hover */
+  }
   
   .skill-set li:hover
   {
