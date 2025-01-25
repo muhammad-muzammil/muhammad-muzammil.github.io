@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const button = document.querySelector('.dropdown-btn');
-    const dropdownContent = document.querySelector('.dropdown-content');
+    const buttons = document.querySelectorAll('.dropdown-btn');
   
-    button.addEventListener('click', function () {
-      // Toggle the 'show' class on the dropdown content
-      dropdownContent.classList.toggle('show');
+    buttons.forEach((button) => {
+      button.addEventListener('click', function () {
+        const dropdownContent = this.nextElementSibling;
   
-      // Update button text
-      this.textContent = dropdownContent.classList.contains('show')
-        ? 'Hide Citation'
-        : 'Show Citation';
+        if (dropdownContent.style.display === 'block') {
+          dropdownContent.style.display = 'none'; // Hide citation
+          this.textContent = 'Show Citation'; // Update button text
+        } else {
+          dropdownContent.style.display = 'block'; // Show citation
+          this.textContent = 'Hide Citation'; // Update button text
+        }
+      });
     });
   });
