@@ -28,8 +28,10 @@
     text-decoration: #ec562c wavy underline !important;
   }
   .citation-container {
-    margin-top: 10px;
-    display: block; /* Ensure vertical stacking */
+    margin-top: 10px; /* Space above the container */
+    display: block; /* Ensure natural block flow */
+    text-align: left; /* Align content to the left */
+    width: 100%; /* Ensure it spans the full width of its container */
   }
   
   .dropdown-btn {
@@ -50,16 +52,16 @@
   
   .dropdown-content {
     max-height: 0;
-    overflow: hidden;
-    opacity: 0;
+    overflow: hidden; /* Prevent overflow when hidden */
+    opacity: 0; /* Initially invisible */
     transform: scaleY(0);
-    transform-origin: top;
+    transform-origin: top; /* Expand from top */
     transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
     font-family: monospace;
     font-size: 0.85em;
-    text-align: left; /* Ensure content is left-aligned */
-    margin: 0; /* Reset any inherited margins */
-    padding-left: 0; /* Align text with button */
+    text-align: left; /* Align text properly */
+    margin: 0; /* Remove any margins that cause misalignment */
+    width: 100%; /* Match the container width */
   }
   
   .dropdown-content.show {
