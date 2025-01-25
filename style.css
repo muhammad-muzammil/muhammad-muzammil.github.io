@@ -28,6 +28,33 @@
     text-decoration: #ec562c wavy underline !important;
   }
   
+
+  .dropdown-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .dropdown-btn:hover {
+    background-color: #1e7ac5;
+  }
+  
+  .dropdown-content {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    font-family: monospace;
+    font-size: 0.85em;
+    white-space: pre-wrap;
+  }
+  
+
   .skill-set li:hover
   {
       background:#3498db;
