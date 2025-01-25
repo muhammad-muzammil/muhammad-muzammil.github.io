@@ -18,6 +18,17 @@ body
 	text-rendering:optimizeLegibility;
 }
 
+a {
+    color: #3498db; /* Blue link color */
+    text-decoration: none; /* Remove underline by default */
+    font-weight: 500; /* Slightly bolder links */
+}
+
+a:hover {
+    text-decoration: underline; /* Add underline on hover for emphasis */
+    color: #1e7ac5; /* Darker blue on hover */
+}
+
 .skill-set li:hover
 {
 	background:#3498db;
