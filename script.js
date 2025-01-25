@@ -3,12 +3,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const dropdownContent = document.querySelector('.dropdown-content');
   
     button.addEventListener('click', function () {
-      if (dropdownContent.style.display === 'none' || dropdownContent.style.display === '') {
-        dropdownContent.style.display = 'block'; // Show citation
-        this.textContent = 'Hide Citation'; // Update button text
-      } else {
-        dropdownContent.style.display = 'none'; // Hide citation
-        this.textContent = 'Show Citation'; // Update button text
-      }
+      dropdownContent.classList.toggle('show'); // Toggle the "show" class
+  
+      // Update button text based on visibility
+      this.textContent = dropdownContent.classList.contains('show')
+        ? 'Hide Citation'
+        : 'Show Citation';
     });
   });

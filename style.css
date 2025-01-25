@@ -45,16 +45,22 @@
   
   .dropdown-content {
     display: none;
-    background-color: transparent; /* Remove the box background */
-    border: none; /* Remove the border */
-    padding: 0; /* Remove padding */
-    margin-top: 10px; /* Space below the button */
-    font-family: monospace; /* Use monospace for citation */
-    font-size: 0.85em; /* Adjust font size */
-    white-space: pre-wrap; /* Maintain citation formatting */
-    text-align: left; /* Align content to the left */
+    margin-top: 10px; /* Space between the button and dropdown */
+    font-family: monospace;
+    font-size: 0.85em;
+    white-space: pre-wrap;
+    text-align: left;
+    opacity: 0; /* Initially hidden */
+    transform: scaleY(0); /* Shrink vertically */
+    transform-origin: top; /* Expand from the top */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth effect */
   }
   
+  .dropdown-content.show {
+    display: block;
+    opacity: 1; /* Fully visible */
+    transform: scaleY(1); /* Fully expanded */
+  }
 
   .skill-set li:hover
   {
