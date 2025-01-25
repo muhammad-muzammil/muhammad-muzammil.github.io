@@ -19,14 +19,14 @@ body
 }
 
 a {
-    color: #3498db; /* Blue link color */
-    text-decoration: none; /* Remove underline by default */
-    font-weight: 500; /* Slightly bolder links */
+    color: #3498db !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
 }
 
 a:hover {
-    text-decoration: underline; /* Add underline on hover for emphasis */
-    color: #1e7ac5; /* Darker blue on hover */
+    text-decoration: underline !important;
+    color: #1e7ac5 !important;
 }
 
 .skill-set li:hover
