@@ -55,12 +55,6 @@
     transform-origin: top; /* Expand from the top */
     transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth effect */
   }
-  
-  .dropdown-content.show {
-    display: block;
-    opacity: 1; /* Fully visible */
-    transform: scaleY(1); /* Fully expanded */
-  }
 
   .skill-set li:hover
   {
