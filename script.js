@@ -1,25 +1,21 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const buttons = document.querySelectorAll('.dropdown-btn');
+document.addEventListener("DOMContentLoaded", () => {
 
-    buttons.forEach((button) => {
-        button.addEventListener('click', function () {
-            const dropdownContent = this.nextElementSibling;
+  const buttons = document.querySelectorAll(".dropdown-btn");
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const dropdownContent = this.nextElementSibling;
+      if (!dropdownContent) return;
 
-            if (dropdownContent.classList.contains('show')) {
-                dropdownContent.classList.remove('show'); // Collapse citation
-                this.textContent = 'Show Citation'; // Update button text
-            } else {
-                dropdownContent.classList.add('show'); // Expand citation
-                this.textContent = 'Hide Citation'; // Update button text
-            }
-        });
+      const isOpen = dropdownContent.classList.contains("show");
+      dropdownContent.classList.toggle("show", !isOpen);
+      this.textContent = isOpen ? "Show Citation" : "Hide Citation";
     });
-});
+  });
 
-(function () {
+
   const WORKER_BASE = "https://winter-tooth-f8c7.muzammil1035.workers.dev";
 
-  function isPdf(href) {
+  function isPdfHref(href) {
     try {
       const u = new URL(href, location.href);
       return u.pathname.toLowerCase().endsWith(".pdf");
@@ -31,12 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
   function sendEvent(payload) {
     const body = JSON.stringify(payload);
 
+    // Best for navigation events
     if (navigator.sendBeacon) {
       const blob = new Blob([body], { type: "application/json" });
       navigator.sendBeacon(`${WORKER_BASE}/e`, blob);
       return;
     }
 
+    // Fallback
     fetch(`${WORKER_BASE}/e`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -46,23 +44,48 @@ document.addEventListener('DOMContentLoaded', function () {
     }).catch(() => {});
   }
 
+  // Use capture so we fire before navigation
   document.addEventListener(
     "click",
     (e) => {
-      const a = e.target.closest && e.target.closest("a");
-      if (!a || !a.href) return;
+      const a = e.target.closest ? e.target.closest("a") : null;
+      if (!a) return;
 
-      // Optional: ignore pure in-page anchors like href="#section"
-      if (a.getAttribute("href") && a.getAttribute("href").startsWith("#")) return;
+      const hrefAttr = a.getAttribute("href") || "";
+      if (!hrefAttr) return;
+
+      // Ignore in-page anchors (#something)
+      if (hrefAttr.startsWith("#")) return;
+
+      // Ignore javascript: links
+      if (hrefAttr.startsWith("javascript:")) return;
+
+      // Resolve to absolute URL
+      let hrefAbs = "";
+      try {
+        hrefAbs = new URL(hrefAttr, location.href).toString();
+      } catch {
+        return;
+      }
+
+      const pdf = isPdfHref(hrefAbs);
 
       sendEvent({
-        event: isPdf(a.href) ? "pdf_click" : "link_click",
+        event: pdf ? "pdf_click" : "link_click",
         page: location.href,
-        href: a.href,
+        href: hrefAbs,
         text: (a.textContent || "").trim().slice(0, 120),
-        target: a.target || "",
+        target: a.getAttribute("target") || "",
       });
+
+      if (window.gtag) {
+        window.gtag("event", pdf ? "pdf_click" : "link_click", {
+          link_url: hrefAbs,
+          link_text: (a.textContent || "").trim().slice(0, 120),
+          page_location: location.href,
+        });
+      }
     },
     { capture: true }
   );
-})();
+});
